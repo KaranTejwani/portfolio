@@ -151,28 +151,23 @@
             text-decoration: none;
             font-weight: 500;
             position: relative;
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
+            padding: 0.5rem 0;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            overflow: hidden;
         }
 
         .nav-links a::before {
             content: '';
             position: absolute;
-            top: 0;
+            bottom: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
+            width: 0;
+            height: 2px;
             background: var(--primary-gradient);
-            opacity: 0;
-            border-radius: 25px;
-            transition: all 0.3s ease;
-            z-index: -1;
+            transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .nav-links a:hover::before {
-            opacity: 0.2;
+            width: 100%;
         }
 
         .nav-links a:hover {
@@ -332,14 +327,73 @@
         }
 
         .cta-button.secondary {
-            background: transparent;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            backdrop-filter: blur(10px);
+            background: var(--primary-gradient);
+            border: none;
         }
 
         .cta-button.secondary:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: rgba(255, 255, 255, 0.6);
+            background: var(--primary-gradient);
+            border: none;
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.4);
+        }
+
+        /* CV Download Button Styles */
+        .cv-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1.2rem 2.5rem;
+            background: var(--primary-gradient);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+
+        .cv-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.6s;
+        }
+
+        .cv-button:hover::before {
+            left: 100%;
+        }
+
+        .cv-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.4);
+        }
+
+        .cv-button i {
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .cv-button:hover i {
+            transform: translateY(-2px);
+        }
+
+        /* Contact section CV button variant */
+        .contact-link.cv-button {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+        }
+
+        .contact-link.cv-button:hover {
+            background: rgba(102, 126, 234, 0.1);
+            border-color: rgba(102, 126, 234, 0.5);
         }
 
         @keyframes fadeInUp {
@@ -1150,6 +1204,10 @@
                     <i class="fas fa-rocket"></i>
                     View My Work
                 </a>
+                <a href="KaranKumarCV.pdf" class="cv-button" download>
+                    <i class="fas fa-file-download"></i>
+                    Download CV
+                </a>
                 <a href="#contact" class="cta-button secondary">
                     <i class="fas fa-envelope"></i>
                     Get In Touch
@@ -1417,6 +1475,10 @@
         <div class="contact-content">
             <p>I'm always excited to discuss new opportunities, innovative projects, or collaborate on cutting-edge technology solutions. Let's create something amazing together!</p>
             <div class="contact-links">
+                <a href="path_to_your_cv.pdf" class="contact-link cv-button" download>
+                    <i class="fas fa-file-download"></i>
+                    <span>Download CV</span>
+                </a>
                 <a href="mailto:karantejwani48@gmail.com" class="contact-link">
                     <i class="fas fa-envelope"></i>
                     <span>Email</span>

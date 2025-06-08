@@ -110,7 +110,7 @@
         }
 
         nav.scrolled {
-            background: rgba(0, 0, 0, 0.9);
+            background: rgba(0, 0, 0, 0.1);
             backdrop-filter: blur(40px);
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
         }
@@ -915,8 +915,8 @@
     <section id="home" class="hero">
         <div class="hero-content">
             <h1>Karan Kumar</h1>
-            <p class="hero-subtitle">Computer Scientist & AI/ML Engineer</p>
-            <p class="hero-description">Passionate about creating intelligent solutions that bridge the gap between cutting-edge technology and real-world impact.</p>
+            <p class="hero-subtitle"></p>
+            <p class="hero-description"></p>
             <div class="hero-buttons">
                 <a href="#projects" class="cta-button">
                     <i class="fas fa-rocket"></i>
@@ -1206,7 +1206,7 @@
                 navbar.classList.remove('scrolled');
             }
             
-            // Hide/show navbar on scroll
+            // Only handle show/hide behavior
             if (currentScrollY > lastScrollY && currentScrollY > 200) {
                 navbar.style.transform = 'translateY(-100%)';
             } else {
@@ -1324,7 +1324,12 @@
         }
 
         // Initialize enhanced typing effects
-        setTimeout(() => {
+        window.addEventListener('load', () => {
+            resizeCanvas();
+            initParticles();
+            animate();
+            
+            // Start typing animations immediately
             const heroSubtitle = document.querySelector('.hero-subtitle');
             const heroDescription = document.querySelector('.hero-description');
             
@@ -1333,7 +1338,12 @@
             setTimeout(() => {
                 typeWriter(heroDescription, 'Passionate about creating intelligent solutions that bridge the gap between cutting-edge technology and real-world impact.', 40);
             }, 2000);
-        }, 1000);
+            
+            // Trigger initial animations
+            setTimeout(() => {
+                document.querySelector('.hero-content').style.opacity = '1';
+            }, 500);
+        });
 
         // Performance optimizations
         let ticking = false;
@@ -1348,17 +1358,6 @@
         window.addEventListener('resize', () => {
             resizeCanvas();
             initParticles();
-        });
-
-        window.addEventListener('load', () => {
-            resizeCanvas();
-            initParticles();
-            animate();
-            
-            // Trigger initial animations
-            setTimeout(() => {
-                document.querySelector('.hero-content').style.opacity = '1';
-            }, 500);
         });
 
         // Mobile menu functionality

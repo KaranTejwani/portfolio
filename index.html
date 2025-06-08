@@ -1118,6 +1118,30 @@
             padding: 0.2rem 0.6rem;
         }
 
+        .verify-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            padding: 0.4rem 0.8rem;
+            background: var(--primary-gradient);
+            color: white;
+            text-decoration: none;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 500;
+            margin-top: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .verify-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .verify-button i {
+            font-size: 0.8rem;
+        }
+
         /* Modal styles */
         .certificate-modal {
             display: none;
@@ -1318,12 +1342,15 @@
                     <h3>Machine Learning Specialization</h3>
                     <h4>DeepLearning.AI</h4>
                     <p class="certification-date">Issued: Aug 2024</p>
-                    <p>Completed the Machine Learning Specialization by DeepLearning.AI on Coursera, gaining hands-on experience in supervised learning, neural networks, and advanced ML algorithms.</p>
                     <div class="certification-tags">
                         <span class="tag">Core Machine Learning Skills</span>
                         <span class="tag">Neural Network & Deep Learning</span>
                         <span class="tag">Hyperparameter Tuning</span>
                     </div>
+                    <a href="https://www.coursera.org/account/accomplishments/specialization/D19XYU0J24H0" class="verify-button" target="_blank" onclick="event.stopPropagation();">
+                        <i class="fas fa-external-link-alt"></i>
+                        Verify Certificate
+                    </a>
                 </div>
             </div>
 
@@ -1333,43 +1360,54 @@
                     <h3>Generative AI Application Developer</h3>
                     <h4>PakAngels</h4>
                     <p class="certification-date">Issued: Oct 2024</p>
-                    <p>Completed PakAngels Essential Generative AI Training – a 6‑week, hands‑on program on building real-world Gen‑AI apps using pre-trained models.</p>
                     <div class="certification-tags">
                         <span class="tag">Model Integration</span>
                         <span class="tag">Fine-Tuning</span>
                         <span class="tag">Toolchain Proficiency</span>
                         <span class="tag">Prompt Engineering</span>
                     </div>
+                    <a href="https://credsverse.com/credentials/e19d1971-777d-43d2-a31f-ffc90146dcce" class="verify-button" target="_blank" onclick="event.stopPropagation();">
+                        <i class="fas fa-external-link-alt"></i>
+                        Verify Certificate
+                    </a>
                 </div>
             </div>
+
             <div class="certification-card scale-in" style="--delay: 1" onclick="openModal('cert3')">
                 <img src="mongo.jpg" alt="Introduction to MongoDB Certificate" class="certificate-image">
                 <div class="certification-content">
                     <h3>Introduction to MongoDB</h3>
                     <h4>MongoDB</h4>
                     <p class="certification-date">Issued: June 2025</p>
-                    <p>Completed the Introduction to MongoDB certification by MongoDB University, covering 12 units on NoSQL fundamentals, CRUD operations, indexing, aggregation, and schema design using MongoDB.</p>
                     <div class="certification-tags">
                         <span class="tag">NoSQL Database</span>
                         <span class="tag">MongoDB Shell & Compass</span>
                         <span class="tag">CRUD Operations</span>
                         <span class="tag">Data Modeling & Schema Design</span>
                     </div>
+                    <a href="https://learn.mongodb.com/c/lbZGdug4Rq-e66tyOSkIQw" class="verify-button" target="_blank" onclick="event.stopPropagation();">
+                        <i class="fas fa-external-link-alt"></i>
+                        Verify Certificate
+                    </a>
                 </div>
             </div>
+
             <div class="certification-card scale-in" style="--delay: 3" onclick="openModal('cert4')">
                 <img src="ProblemSolving.jpg" alt="Problem Solving Certificate" class="certificate-image">
                 <div class="certification-content">
                     <h3>Problem Solving (Basic)</h3>
                     <h4>HackerRank</h4>
                     <p class="certification-date">Issued: May 2024</p>
-                    <p>Earned the Problem Solving (Basic) certificate from HackerRank, demonstrating proficiency in fundamental algorithms, data structures, and logical reasoning through timed coding challenges.</p>
                     <div class="certification-tags">
                         <span class="tag">Problem Solving</span>
                         <span class="tag">Data Structures</span>
                         <span class="tag">Algorithms</span>
                         <span class="tag">Time & Space Complexity</span>
                     </div>
+                    <a href="https://www.hackerrank.com/certificates/cf843a11183a" class="verify-button" target="_blank" onclick="event.stopPropagation();">
+                        <i class="fas fa-external-link-alt"></i>
+                        Verify Certificate
+                    </a>
                 </div>
             </div>
         </div>

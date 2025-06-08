@@ -614,6 +614,9 @@
             transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
             transform-style: preserve-3d;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
         }
 
         .project-card:hover {
@@ -627,10 +630,19 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 4rem;
-            color: white;
             position: relative;
             overflow: hidden;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .project-card:hover .project-image img {
+            transform: scale(1.05);
         }
 
         .project-image::before {
@@ -640,26 +652,15 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(45deg, rgba(255,255,255,0.1) 0%, transparent 100%);
-            transform: translateX(-100%);
-            transition: transform 0.6s ease;
-        }
-
-        .project-card:hover .project-image::before {
-            transform: translateX(100%);
-        }
-
-        .project-card:hover .project-image i {
-            transform: scale(1.2) rotate(10deg);
-        }
-
-        .project-image i {
-            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-            filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.3));
+            background: linear-gradient(45deg, rgba(0,0,0,0.2) 0%, transparent 100%);
+            z-index: 1;
         }
 
         .project-content {
             padding: 2.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
         }
 
         .project-title {
@@ -676,6 +677,7 @@
             color: var(--text-secondary);
             line-height: 1.7;
             margin-bottom: 1.5rem;
+            flex: 1;
         }
 
         .project-tags {
@@ -883,6 +885,230 @@
         ::-webkit-scrollbar-thumb:hover {
             background: var(--secondary-gradient);
         }
+
+        /* Experience Section */
+        .experience-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
+
+        .experience-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 25px;
+            padding: 2.5rem;
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+        }
+
+        .experience-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-glow);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .experience-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .experience-card:hover .experience-icon {
+            transform: scale(1.2) rotate(10deg);
+            filter: drop-shadow(0 0 20px rgba(102, 126, 234, 0.5));
+        }
+
+        .experience-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .experience-content h4 {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .experience-date {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        .experience-content p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .experience-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-top: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .experience-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Certifications Section */
+        .certifications-grid {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 3rem;
+            overflow-x: auto;
+            padding: 1rem 0.5rem;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none; /* IE and Edge */
+        }
+
+        .certifications-grid::-webkit-scrollbar {
+            display: none; /* Chrome, Safari, Opera */
+        }
+
+        .certification-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 1.5rem;
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            min-width: 300px;
+            max-width: 300px;
+            scroll-snap-align: start;
+            flex-shrink: 0;
+            cursor: pointer;
+        }
+
+        .certificate-image {
+            width: 100%;
+            height: 120px;
+            border-radius: 10px;
+            object-fit: cover;
+            margin-bottom: 1rem;
+            border: 1px solid var(--glass-border);
+            transition: all 0.3s ease;
+        }
+
+        .certification-card:hover .certificate-image {
+            transform: scale(1.02);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .certification-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .certification-content h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.3rem;
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .certification-content h4 {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.3rem;
+            font-weight: 500;
+        }
+
+        .certification-date {
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+            margin-bottom: 0.8rem;
+            font-style: italic;
+        }
+
+        .certification-content p {
+            color: var(--text-secondary);
+            line-height: 1.5;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .certification-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.8rem;
+        }
+
+        .certification-tags .tag {
+            font-size: 0.75rem;
+            padding: 0.3rem 0.8rem;
+        }
+
+        /* Modal styles */
+        .certificate-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .modal-content {
+            max-width: 90%;
+            max-height: 90vh;
+            position: relative;
+        }
+
+        .modal-content img {
+            max-width: 100%;
+            max-height: 90vh;
+            object-fit: contain;
+            border-radius: 10px;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .close-modal:hover {
+            transform: scale(1.1);
+            color: var(--text-primary);
+        }
     </style>
 </head>
 <body>
@@ -901,6 +1127,8 @@
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#certifications">Certifications</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -986,59 +1214,147 @@
         </div>
     </section>
 
+    <section id="experience" class="fade-in">
+        <h2 class="section-title">Experience</h2>
+        <div class="experience-grid">
+            <div class="experience-card scale-in" style="--delay: 1">
+                <div class="experience-icon">
+                    <i class="fas fa-laptop-code"></i>
+                </div>
+                <div class="experience-content">
+                    <h3>PRC Lead</h3>
+                    <h4>CS Society Sukkur IBA University</h4>
+                    <p class="experience-date">Nov 2024 - Present</p>
+                    <p>I actively organize coding sessions, tech events, and peer mentorship programs to empower fellow students. Passionate about creating a collaborative ecosystem that blends innovation, learning, and real-world problem solving.</p>
+                    <div class="experience-tags">
+                        <span class="tag">Programming Tutoring</span>
+                        <span class="tag">C++</span>
+                        <span class="tag">Java</span>
+                        <span class="tag">Team Leadership</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="experience-card scale-in" style="--delay: 2">
+                <div class="experience-icon">
+                    <i class="fas fa-lightbulb"></i>
+                </div>
+                <div class="experience-content">
+                    <h3>Incubatee</h3>
+                    <h4>NEP NIC Sukkur</h4>
+                    <p class="experience-date">May 2024 - Aug 2024</p>
+                    <p>Incubated at NIC Sukkur (NEP NIC), where I worked on my AI-based startup Simper - an intelligent online examination system aimed at revolutionizing assessment through automation, security, and accessibility. The incubation provided mentorship, technical guidance, and entrepreneurial support to transform my vision into a scalable solution.</p>
+                    <div class="experience-tags">
+                        <span class="tag">Startup</span>
+                        <span class="tag">AI</span>
+                        <span class="tag">Team Collaboration</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="certifications" class="fade-in">
+        <h2 class="section-title">Certifications</h2>
+        <div class="certifications-grid">
+            <div class="certification-card scale-in" style="--delay: 1" onclick="openModal('cert1')">
+                <img src="ML Specialization.jpg" alt="Machine Learning Specialization Certificate" class="certificate-image">
+                <div class="certification-icon">
+                    <!-- <i class="fas fa-award"></i> -->
+                </div>
+                <div class="certification-content">
+                    <h3>Machine Learning Specialization</h3>
+                    <h4>DeepLearning.AI</h4>
+                    <p class="certification-date">Issued: Aug 2024</p>
+                    <p>Completed the Machine Learning Specialization by DeepLearning.AI on Coursera, gaining hands-on experience in supervised learning, neural networks, and advanced ML algorithms.</p>
+                    <div class="certification-tags">
+                        <span class="tag">Core Machine Learning Skills</span>
+                        <span class="tag">Neural Network & Deep Learning</span>
+                        <span class="tag">Hyperparameter Tuning</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="certification-card scale-in" style="--delay: 3" onclick="openModal('cert2')">
+                <img src="PakAngels.jpg" alt="Machine Learning Specialization Certificate" class="certificate-image">
+                <div class="certification-icon">
+                    <!-- <i class="fas fa-brain"></i> -->
+                </div>
+                <div class="certification-content">
+                    <h3>Pak Angels Essential Generative AI Training</h3>
+                    <h4>Udemy</h4>
+                    <p class="certification-date">Issued: Oct 2024</p>
+                    <p>Completed PakAngels Essential Generative AI Training – a 6‑week, hands‑on program on building real-world Gen‑AI apps using pre-trained models.</p>
+                    <div class="certification-tags">
+                        <span class="tag">Model Integration</span>
+                        <span class="tag">Fine-Tuning</span>
+                        <span class="tag">Toolchain Proficiency</span>
+                        <span class="tag">Prompt Engineering</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="projects" class="fade-in">
         <h2 class="section-title">Featured Projects</h2>
         <div class="projects-grid">
-            <div class="project-card scale-in" style="--delay: 1">
-                <div class="project-image">
-                    <i class="fas fa-shopping-cart"></i>
-                </div>
-                <div class="project-content">
-                    <h3 class="project-title">FindIt – E-commerce Platform</h3>
-                    <p>A comprehensive cross-platform e-commerce solution featuring user authentication, advanced product catalog, intelligent cart management, and seamless order processing. Built with modern architecture ensuring scalability and optimal performance.</p>
-                    <div class="project-tags">
-                        <span class="tag">Flutter</span>
-                        <span class="tag">Express.js</span>
-                        <span class="tag">MySQL</span>
-                        <span class="tag">REST API</span>
-                        <span class="tag">Firebase</span>
+            <a href="https://github.com/KaranTejwani/finddd" target="_blank" style="text-decoration: none; color: inherit;">
+                <div class="project-card scale-in" style="--delay: 1">
+                    <div class="project-image">
+                        <img src="findit.jpg" alt="FindIt E-commerce Platform">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">FindIt – E-commerce Platform</h3>
+                        <p>A comprehensive cross-platform e-commerce solution featuring user authentication, advanced product catalog, intelligent cart management, and seamless order processing. Built with modern architecture ensuring scalability and optimal performance.</p>
+                        <div class="project-tags">
+                            <span class="tag">Flutter</span>
+                            <span class="tag">Express.js</span>
+                            <span class="tag">MySQL</span>
+                            <span class="tag">REST API</span>
+                            <span class="tag">Firebase</span>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="project-card scale-in" style="--delay: 2">
-                <div class="project-image">
-                    <i class="fas fa-hand-paper"></i>
-                </div>
-                <div class="project-content">
-                    <h3 class="project-title">AI Sign Language Interpreter</h3>
-                    <p>Advanced real-time gesture detection system supporting multiple sign languages (ASL, BSL, ISL). Utilizes computer vision and deep learning for accurate gesture recognition, enabling seamless communication accessibility.</p>
-                    <div class="project-tags">
-                        <span class="tag">Python</span>
-                        <span class="tag">TensorFlow</span>
-                        <span class="tag">OpenCV</span>
-                        <span class="tag">MediaPipe</span>
-                        <span class="tag">Deep Learning</span>
-                        <span class="tag">Computer Vision</span>
+            </a>
+            <a href="https://github.com/KaranTejwani/GestureDetection" target="_blank" style="text-decoration: none; color: inherit;">
+                <div class="project-card scale-in" style="--delay: 2">
+                    <div class="project-image">
+                        <img src="gestureDetector.png" alt="Gesture Detector and Sign Language Interpreter">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Gesture Detector and Sign Language Interpreter</h3>
+                        <p>Advanced real-time gesture detection system supporting multiple sign languages (ASL, BSL, ISL). Utilizes computer vision and deep learning for accurate gesture recognition, enabling seamless communication accessibility.</p>
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">TensorFlow</span>
+                            <span class="tag">OpenCV</span>
+                            <span class="tag">MediaPipe</span>
+                            <span class="tag">Deep Learning</span>
+                            <span class="tag">Computer Vision</span>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="project-card scale-in" style="--delay: 3">
-                <div class="project-image">
-                    <i class="fas fa-pen-fancy"></i>
-                </div>
-                <div class="project-content">
-                    <h3 class="project-title">Handwritten Digit Recognition</h3>
-                    <p>Intelligent handwritten digit classification system trained on the MNIST dataset. Features real-time digit input processing with OpenCV integration and achieves 99%+ accuracy through optimized neural network architecture.</p>
-                    <div class="project-tags">
-                        <span class="tag">Deep Learning</span>
-                        <span class="tag">TensorFlow</span>
-                        <span class="tag">OpenCV</span>
-                        <span class="tag">MNIST</span>
-                        <span class="tag">Image Processing</span>
-                        <span class="tag">Neural Networks</span>
+            </a>
+            <a href="https://github.com/KaranTejwani/Handwritten_Digit_Recognition" target="_blank" style="text-decoration: none; color: inherit;">
+                <div class="project-card scale-in" style="--delay: 3">
+                    <div class="project-image">
+                        <img src="handwritten_digit_recognition.png" alt="Handwritten Digit Recognition">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Handwritten Digit Recognition</h3>
+                        <p>Intelligent handwritten digit classification system trained on the MNIST dataset. Features real-time digit input processing with OpenCV integration and achieves 99%+ accuracy through optimized neural network architecture.</p>
+                        <div class="project-tags">
+                            <span class="tag">Deep Learning</span>
+                            <span class="tag">TensorFlow</span>
+                            <span class="tag">OpenCV</span>
+                            <span class="tag">MNIST</span>
+                            <span class="tag">Image Processing</span>
+                            <span class="tag">Neural Networks</span>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </a>
         </div>
     </section>
 
@@ -1062,6 +1378,14 @@
             </div>
         </div>
     </section>
+
+    <!-- Add modal HTML at the end of the body -->
+    <div id="certificateModal" class="certificate-modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <img id="modalImage" src="" alt="Certificate">
+        </div>
+    </div>
 
     <script>
         // Enhanced Particle System
@@ -1400,6 +1724,36 @@
             }
         `;
         document.head.appendChild(style);
+
+        function openModal(certId) {
+            const modal = document.getElementById('certificateModal');
+            const modalImg = document.getElementById('modalImage');
+            const certImage = document.querySelector(`[onclick="openModal('${certId}')"] .certificate-image`);
+            
+            modal.style.display = 'flex';
+            modalImg.src = certImage.src;
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('certificateModal');
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside the image
+        document.getElementById('certificateModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
     </script>
 </body>
 </html>
